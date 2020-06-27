@@ -1,2 +1,2 @@
-# Parallel_Sampling-
+# Parallel_Sampling
 Generate posterior samples by partitioning space into multiple subspaces that are explored independently. 
