@@ -102,7 +102,7 @@ try
     posterior_integral = -log(sum(output_sp_ms.info.density_integral))
     
     @show "Saving Samples:"
-    bat_write(SAVE_PATH*"samples"*IND*".hdf5", unshaped.(samples))
+    BAT.bat_write(SAVE_PATH*"samples"*IND*".hdf5", unshaped.(samples))
     CSV.write(SAVE_PATH*"table"*IND*".csv", output_sp_ms.info)
     
 finally
