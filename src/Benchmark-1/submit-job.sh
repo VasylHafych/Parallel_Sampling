@@ -15,8 +15,8 @@
 
 ### Shared node configuration:
 #SBATCH --partition=express
-#SBATCH --ntasks=20
-#SBATCH --cpus-per-task=6
+#SBATCH --ntasks=16
+#SBATCH --cpus-per-task=10
 ##SBATCH --mem=32000
 
 #SBATCH --mail-type=none
@@ -26,8 +26,8 @@ module load julia/1.4.2
 module load anaconda/3/2019.03 
 
 # each worker can use 1 thread
-export JULIA_NUM_THREADS=6
+export JULIA_NUM_THREADS=10
 
 # we spawn 1 master and N-1 workers from the master
-julia sample-distributed-2.jl
+julia run-mpcdf.jl
 
