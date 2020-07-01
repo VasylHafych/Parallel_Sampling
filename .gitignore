@@ -6,4 +6,5 @@ plots/.ipynb_checkpoints
 html/.ipynb_checkpoints
 notebooks/.ipynb_checkpoints
 notebooks/temp*
-
+data/Benchmark-1/samples*
+data/Benchmark-1/table*
