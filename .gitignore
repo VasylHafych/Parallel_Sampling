@@ -8,3 +8,5 @@ notebooks/.ipynb_checkpoints
 notebooks/temp*
 data/Benchmark-1/samples*
 data/Benchmark-1/table*
+data/Benchmark-1/run*
+data/Benchmark-1/tmp
