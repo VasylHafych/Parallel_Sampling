@@ -43,7 +43,7 @@ burnin_1 = MCMCBurninStrategy(
         max_nsamples_per_cycle = 10000,
         max_nsteps_per_cycle = 10000,
         max_time_per_cycle = 25,
-        max_ncycles = 40
+        max_ncycles = 50
     )
 
 tuning = AdaptiveMetropolisTuning(
@@ -54,7 +54,10 @@ tuning = AdaptiveMetropolisTuning(
     r = 0.5
 )
 
-sampling_kwargs = (burnin = burnin_1, tuning=tuning)
+max_nsteps = 10^10
+max_time = Inf
+
+sampling_kwargs = (burnin = burnin_1, tuning=tuning, max_nsteps=max_nsteps, max_time=max_time)
  
 exploration_sampler = MetropolisHastings()
 

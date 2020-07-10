@@ -14,13 +14,13 @@
 ##SBATCH --partition=general  # necessary on DRACO
 
 ### Shared node configuration: [general express]
-#SBATCH --partition=express
+#SBATCH --partition=general
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=1
 ##SBATCH --mem=32000
 
 #SBATCH --mail-type=none
-#SBATCH --time=00:20:59
+#SBATCH --time=00:59:59
 
 module load julia/1.4.2
 module load anaconda/3/2019.03 
