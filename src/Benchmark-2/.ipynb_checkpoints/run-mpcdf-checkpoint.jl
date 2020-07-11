@@ -54,10 +54,18 @@ tuning = AdaptiveMetropolisTuning(
     r = 0.5
 )
 
+init = MCMCInitStrategy(
+    init_tries_per_chain = 8..128,
+    max_nsamples_init = 25,
+    max_nsteps_init = 250,
+    max_time_init = 25
+)
+
+
 max_nsteps = 10^10
 max_time = Inf
 
-sampling_kwargs = (burnin = burnin_1, tuning=tuning, max_nsteps=max_nsteps, max_time=max_time)
+sampling_kwargs = (burnin = burnin_1, tuning=tuning, max_nsteps=max_nsteps, max_time=max_time, init=init)
  
 exploration_sampler = MetropolisHastings()
 
@@ -96,8 +104,15 @@ algorithm = PartitionedSampling(
     )
 
 n_chains = 10 
-n_samples = 10^5
+n_samples = 3*10^5
 n_subspaces = 1
+
+try 
+    # Test run to precompile BAT on workers
+    test_run = bat_sample(posterior, (10^3, 2, slurm_ntasks+1), algorithm);
+catch 
+    @show "Precompilation Run Failed"
+end
 
 try
     output_sp_ms = bat_sample(posterior, (n_samples, n_chains, n_subspaces), algorithm);
